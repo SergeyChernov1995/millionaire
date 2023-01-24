@@ -201,12 +201,12 @@ def lifeline_used(a):
     elif (a==1):
         log.write("Игрок берёт подсказку Звонок другу: друг ")
         iq = []
-        iq.append(oddz_paf[current_q_number]["K"])
-        iq.append(oddz_paf[current_q_number]["GC"])
-        iq.append(oddz_paf[current_q_number]["GR"])
-        iq.append(oddz_paf[current_q_number]["N"])
-        iq.append(oddz_paf[current_q_number]["N1"])
-        iq.append(oddz_paf[current_q_number]["N2"])
+        iq.append(oddz_paf[current_q_number-1]["K"])
+        iq.append(oddz_paf[current_q_number-1]["GC"])
+        iq.append(oddz_paf[current_q_number-1]["GR"])
+        iq.append(oddz_paf[current_q_number-1]["N"])
+        iq.append(oddz_paf[current_q_number-1]["N1"])
+        iq.append(oddz_paf[current_q_number-1]["N2"])
         if (_5050_usedonthisq is True):
             m = randint(1, sum(iq[:4]))
         else:
@@ -373,6 +373,7 @@ def start():
                 lifeline_buttons[z]["state"] = "normal"
             else:
                 lifeline_buttons[z]["state"] = "disabled"
+        #print('Question number '+str(current_q_number)+'\n')
     else:
         choose_game_label.place_forget()
         tkinter.messagebox.showinfo("Поздравляем!", "Вы прошли игру и выиграли "+str(money[-1])+' руб.!')
